@@ -7,19 +7,19 @@ import '../../../ui/color.dart';
 import '../../../ui/dimen.dart';
 import '../../../ui/type.dart';
 import '../../../utilties/utility.dart';
-import '../widget/caesar_table.dart';
+import '../../caesar/widget/caesar_table.dart';
 
 
-class DecryptCaesarScreen extends StatefulWidget {
+class DecryptRandomScreen extends StatefulWidget {
 
 
-  DecryptCaesarScreen({super.key});
+  DecryptRandomScreen({super.key});
 
   @override
-  State<DecryptCaesarScreen> createState() => _DecryptCaesarScreenState();
+  State<DecryptRandomScreen> createState() => _DecryptRandomScreenState();
 }
 
-class _DecryptCaesarScreenState extends State<DecryptCaesarScreen> {
+class _DecryptRandomScreenState extends State<DecryptRandomScreen> {
   final TextEditingController _cipherTextController = TextEditingController();
   String _cipherText = "";
 
@@ -86,7 +86,7 @@ class _DecryptCaesarScreenState extends State<DecryptCaesarScreen> {
             if(_cipherText.isNotEmpty)
               Container(width: double.infinity,margin: EdgeInsets.symmetric(vertical: spacing4),height: 1,color: dividerColor,),
             if(_cipherText.isNotEmpty)
-            _buildFrequencyAnalysisView(),
+              _buildFrequencyAnalysisView(),
             if(_cipherText.isNotEmpty)
               SizedBox(height: spacing8,),
             if(_cipherText.isNotEmpty)
@@ -218,10 +218,10 @@ class _DecryptCaesarScreenState extends State<DecryptCaesarScreen> {
       },
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(radiusS),
-          border: Border.all(
-            color: _sortingOrder == sortingOrder ? primaryColor : neutral400Color
-          )
+            borderRadius: BorderRadius.circular(radiusS),
+            border: Border.all(
+                color: _sortingOrder == sortingOrder ? primaryColor : neutral400Color
+            )
         ),
         padding: EdgeInsets.all(spacing3),
         child: Text(text,style: normalRegular.copyWith(color: _sortingOrder == sortingOrder ? primaryColor : neutral500Color),),
@@ -255,19 +255,19 @@ class _DecryptCaesarScreenState extends State<DecryptCaesarScreen> {
           visible: _expandKeySearch,
           child: ListView.builder(itemBuilder: (context,index){
             return InkWell(
-              onTap: (){
-                _setKey(key: index);
-                /// Scroll to bottom
-                var scrollPosition = _scrollController.position;
+                onTap: (){
+                  _setKey(key: index);
+                  /// Scroll to bottom
+                  var scrollPosition = _scrollController.position;
 
-                if (scrollPosition.viewportDimension < scrollPosition.maxScrollExtent) {
-                  _scrollController.animateTo(
-                    scrollPosition.maxScrollExtent,
-                    duration: new Duration(milliseconds: 200),
-                    curve: Curves.easeOut,
-                  );
-                }
-              },
+                  if (scrollPosition.viewportDimension < scrollPosition.maxScrollExtent) {
+                    _scrollController.animateTo(
+                      scrollPosition.maxScrollExtent,
+                      duration: new Duration(milliseconds: 200),
+                      curve: Curves.easeOut,
+                    );
+                  }
+                },
                 child: CaesarResultItemView(text: _cipherText, cipherKey: index));
           },itemCount: 25,shrinkWrap: true,physics: NeverScrollableScrollPhysics(),),
         ),

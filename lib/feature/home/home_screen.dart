@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kriptonalisis/feature/caesar/caesar_screen.dart';
+import 'package:kriptonalisis/feature/random/random_screen.dart';
 import 'package:kriptonalisis/ui/color.dart';
 import 'package:kriptonalisis/ui/dimen.dart';
 import 'package:kriptonalisis/ui/type.dart';
@@ -36,12 +37,12 @@ class HomeScreen extends StatelessWidget {
   Widget _buildMenuView({required BuildContext context}){
     return Column(
       children: [
-        _menuItemView(title: "Caesar Chiper", icon: Image.asset("assets/images/img_caesar.png",width: 30,height: 30,), onTap: () {
+        _menuItemView(title: "Caesar Cipher", icon: Image.asset("assets/images/img_caesar.png",width: 30,height: 30,), onTap: () {
           Navigator.push(context, MaterialPageRoute(builder: (context)=> CaesarScreen()));
         }),
         SizedBox(height: spacing4,),
         _menuItemView(title: "Random Substitution", icon: FaIcon(FontAwesomeIcons.shuffle,size: 30,), onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context)=> CaesarScreen()));
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> RandomScreen()));
         }),
       ],
     );

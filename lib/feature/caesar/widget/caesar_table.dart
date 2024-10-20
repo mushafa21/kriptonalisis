@@ -13,13 +13,13 @@ class CaesarTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final chiperMapping = generateCaesarChiper(chyiperKey);
+    final cipherMapping = generateCaesarCipher(chyiperKey);
     return Wrap(
       alignment: WrapAlignment.center,
       runAlignment: WrapAlignment.center,
       spacing: spacing2,
       runSpacing: spacing2,
-      children: chiperMapping.map((chiper){
+      children: cipherMapping.map((cipher){
         return Container(
           padding: EdgeInsets.all(spacing2),
           decoration: BoxDecoration(
@@ -29,9 +29,9 @@ class CaesarTable extends StatelessWidget {
           ),
           child: Column(
             children: [
-              Text(chiper.keys.first,style: smallRegular,),
+              Text(cipher.plainLetter,style: smallRegular,),
               FaIcon(FontAwesomeIcons.arrowDown,size: 12,),
-              Text(chiper[chiper.keys.first] ?? "-",style: smallRegular,)
+              Text(cipher.cipherLetter,style: smallRegular,)
               
             ],
           ),

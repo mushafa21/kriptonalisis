@@ -56,7 +56,7 @@ const Color descriptionColor = neutral400Color;
 const Color backgroundDisable = Color(0x66330000);
 
 
-const Color dividerColor = Color(0xFFD4D4D4);
+const Color dividerColor = neutral400Color;
 
 const Color whiteColor = Color(0xFFFFFFFF);
 const Color shadowColor = Color(0x3304060F);

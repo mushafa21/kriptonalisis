@@ -5,16 +5,16 @@ import 'package:kriptonalisis/ui/dimen.dart';
 import 'package:kriptonalisis/ui/type.dart';
 import 'package:kriptonalisis/utilties/utility.dart';
 
-class EncryptCaesarScreen extends StatefulWidget {
+class EncryptRandomScreen extends StatefulWidget {
 
 
-  EncryptCaesarScreen({super.key});
+  EncryptRandomScreen({super.key});
 
   @override
-  State<EncryptCaesarScreen> createState() => _EncryptCaesarScreenState();
+  State<EncryptRandomScreen> createState() => _EncryptRandomScreenState();
 }
 
-class _EncryptCaesarScreenState extends State<EncryptCaesarScreen> {
+class _EncryptRandomScreenState extends State<EncryptRandomScreen> {
   final TextEditingController _plainTextController = TextEditingController();
 
   final TextEditingController _resultController = TextEditingController();
@@ -61,25 +61,8 @@ class _EncryptCaesarScreenState extends State<EncryptCaesarScreen> {
           minLines: 5,
           maxLines: 10,
           decoration: InputDecoration(
-            hintText: "Masukan plain text"
+              hintText: "Masukan plain text"
           ),
-        ),
-        SizedBox(height: spacing4,),
-        Text("Key",style: normalMedium,),
-
-        Row(
-          children: [
-            Text(_cipherKey.toString(),style: normalRegular,),
-            SizedBox(width: spacing3,),
-            Expanded(
-              child: Slider(value: _cipherKey.toDouble(), onChanged: (value){
-                _cipherKey = value.toInt();
-                setState(() {
-
-                });
-              },min: 0,max: 24,inactiveColor: neutral100Color,),
-            ),
-          ],
         ),
         SizedBox(height: spacing4,),
 
@@ -87,9 +70,9 @@ class _EncryptCaesarScreenState extends State<EncryptCaesarScreen> {
         SizedBox(height: spacing4,),
 
         SizedBox(width: double.infinity,
-        child: ElevatedButton(onPressed: (){
-          _encrypt();
-        }, child: Text("Encrypt")),)
+          child: ElevatedButton(onPressed: (){
+            _encrypt();
+          }, child: Text("Encrypt")),)
 
       ],
     );
