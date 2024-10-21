@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kriptonalisis/feature/caesar/widget/caesar_table.dart';
+import 'package:kriptonalisis/feature/random/widget/random_table.dart';
 import 'package:kriptonalisis/ui/color.dart';
 import 'package:kriptonalisis/ui/dimen.dart';
 import 'package:kriptonalisis/ui/type.dart';
@@ -66,7 +67,10 @@ class _EncryptRandomScreenState extends State<EncryptRandomScreen> {
         ),
         SizedBox(height: spacing4,),
 
-        CaesarTable(chyiperKey: _cipherKey),
+        RandomTable(),
+
+        // SizedBox(child: RandomTable(),
+        // height: 300,),
         SizedBox(height: spacing4,),
 
         SizedBox(width: double.infinity,
